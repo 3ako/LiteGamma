@@ -9,7 +9,7 @@ class VersionGenerator {
 
 
     static String generateVersion() {
-        return mainVersion+"."+new Date().format('yyyyMMddHHmm');
+        return mainVersion+"."+new Date().format('yyyyMMddHHmm')
     }
 }
 version = VersionGenerator.generateVersion()
@@ -46,9 +46,9 @@ dependencies {
     compileOnly 'com.comphenix.protocol:ProtocolLib:5.1.0'
     compileOnly "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT"
 
-    implementation project(path: ':share')
-    implementation project(path: ':NMS_1_16__1_17')
-    implementation project(path: ':NMS_1_18__1_21')
+    implementation project(':share')
+    implementation project(':NMS_1_16__1_17')
+    implementation project(':NMS_1_18__1_21')
 
 //    compileOnly(fileTree("./libs/"))
 //    shadow files('./libs/PacketWrapper.jar')

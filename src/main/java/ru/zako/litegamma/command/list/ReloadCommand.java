@@ -1,5 +1,7 @@
 package ru.zako.litegamma.command.list;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -11,23 +13,22 @@ import org.jetbrains.annotations.NotNull;
 import ru.zako.litegamma.Config;
 import ru.zako.litegamma.command.SubCommand;
 
-import java.util.List;
-
 @RequiredArgsConstructor
 public class ReloadCommand implements SubCommand {
-    private final Plugin plugin;
+   private final Plugin plugin;
 
-    @Getter
-    private final List<String> aliases = List.of("reload");
+   @Getter
+   private final List<String> aliases = List.of("reload");
 
-    @Getter
-    private final Permission permission = new Permission("litegamma.reload");
+   @Getter
+   private final Permission permission = new Permission("litegamma.reload");
 
-    @Override
-    public void onCommand(@NonNull CommandSender sender, @NotNull @NonNull String[] args) {
-        plugin.reloadConfig();
-        Config.load(plugin.getConfig());
+   @Getter
+   private final String description = " &e/litegamma reload &7- &fПерезагрузить конфиг \n";
 
-        sender.sendMessage(ChatColor.GREEN+"Config has been reloaded!");
-    }
+   public void onCommand(@NonNull CommandSender sender, @NotNull @NonNull String[] args) {
+      plugin.reloadConfig();
+      Config.load(plugin.getConfig());
+      sender.sendMessage(ChatColor.GREEN + "Config has been reloaded!");
+   }
 }

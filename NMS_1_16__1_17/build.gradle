@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group = 'ru.zako'
+class VersionGenerator {
+    private static String mainVersion = "1.0"
+
+
+    static String generateVersion() {
+        return mainVersion+"."+new Date().format('yyyyMMddHHmm')
+    }
+}
+version = VersionGenerator.generateVersion()
+
+dependencies {
+    compileOnly 'com.comphenix.protocol:ProtocolLib:5.1.0'
+    implementation project(':share')
+}

@@ -1,2 +1,3 @@
+databaseURL: "jdbc:mysql://user:password@ip:port/database?useSSL=false&autoReconnent=true"
 worlds:
   - "world"
